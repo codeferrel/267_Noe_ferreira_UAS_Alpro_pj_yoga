@@ -1,0 +1,80 @@
+//267_Noe_ferreira_UAS_Alpro_pj_yoga
+
+#include<iostream>
+#include <fstream>   
+using namespace std ;  
+
+
+
+int MAX = 100 ;
+struct Buku {
+	string nomorbuku ;
+	string judul ;
+	string penulis ;
+	string stok ;
+};
+Buku buku[100] ;
+
+
+void tukar(Buku&a,Buku&b){
+	Buku temp = a ;
+	a =b ;
+	b = temp ;
+}
+
+
+void deklarasibuku(Buku buku [],int n){
+	for(int i =0 ; i< n ;i++){
+		cout<<"Daftar buku ke- "<<i+1 <<"\n";
+		cout<<"Judul buku :";
+		cin>>buku[i].judul;
+		cout<<"Nomor buku :";
+		cin>> buku[i].nomorbuku;
+		cout<<"Penulis buku :";
+		cin>>buku[i].penulis ;
+		cout<<"Stok buku :";
+		cin>>buku[i].stok ;
+	}
+}
+
+int main (){
+	  ofstream file ("file.txt");
+	if(file.is_open()) {
+	int jumlah,n,cari ;
+	int caribuku ;
+	cout<<"Masukkan Jumlah daftar buku: ";
+     cin>>jumlah;
+	deklarasibuku(buku,jumlah);
+	 
+	
+    
+	    
+         //Tampilan deklarasibuku   
+        cout<<"-----------------------------\n";
+		for(int i =0 ; i< jumlah ;i++){
+			
+		cout<<"Daftar buku ke- "<<i+1 <<"\n";
+		cout<<"Judul buku :"<<buku[i].judul<<endl;
+		cout<<"Nomor buku :"<<buku[i].nomorbuku<<endl;
+		cout<<"Penulis buku :"<<buku[i].penulis<<endl ;
+		cout<<"Stok buku :"<<buku[i].stok <<endl;
+		
+}
+     	cout<<"-----------------------------\n";
+	    cin.ignore();
+   
+   
+  
+	 	file<<"-----------------------------\n";
+		for(int i =0 ; i< jumlah ;i++){
+		file<<"Daftar buku ke- "<<i+1 <<"\n";
+		file<<"Judul buku :"<<buku[i].judul<<endl;
+		file<<"Nomor buku :"<<buku[i].nomorbuku<<endl;
+		file<<"Penulis buku :"<<buku[i].penulis<<endl;
+		file<<"Stok buku :"<<buku[i].stok <<endl;
+		
+		file.close();
+}
+	 }
+
+}
